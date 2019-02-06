@@ -1,2 +1,2 @@
 # CRC32calculator
-The implement of CRC-32 algorithm in C.
+The implementation of CRC-32 algorithm in C.
