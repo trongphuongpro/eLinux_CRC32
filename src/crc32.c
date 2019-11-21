@@ -2,6 +2,7 @@
 
 crc32_t crc32Table[256];
 
+
 uint8_t reflect(uint8_t number) {
 	uint8_t result = 0;
 	for (uint8_t i = 0; i < 8; i++) {
@@ -10,7 +11,8 @@ uint8_t reflect(uint8_t number) {
 	return result;
 }
 
-void createCRC32Table() {
+
+void crc32_init() {
     crc32_t remainder;
     for (int data = 0; data < 256; data++) {
         remainder = data;
@@ -24,7 +26,8 @@ void createCRC32Table() {
     }
 }
 
-crc32_t calcCRC32(const char *msg) {
+
+crc32_t crc32_compute(const char *msg) {
     crc32_t remainder = 0xFFFFFFFF;
     uint8_t data;
     
