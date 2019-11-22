@@ -14,8 +14,6 @@ set(CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS "")
 set(CMAKE_EXE_LINKER_FLAGS -mmcu=${MCU})
 #-----------------------------------------------------------------------------#
 
-add_subdirectory()
-
 set(TARGET crc32)
 
 add_library(${TARGET} STATIC src/crc32.c)
