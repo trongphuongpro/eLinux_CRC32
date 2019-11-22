@@ -10,4 +10,4 @@ target_compile_options(${TARGET} PUBLIC -std=gnu11
 										-O2
 )
 
-install(TARGETS ${TARGET} DESTINATION ${CMAKE_CURRENT_SOURCE_DIR})
+install(TARGETS ${TARGET} DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/bin)

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 
-set(MCU **MCU name**)
-set(F_CPU **frequency**)
+#set(MCU **MCU name**)
+#set(F_CPU **frequency**)
 
 #-----------------------------------------------------------------------------#
 set(CMAKE_SYSTEM_NAME Generic)
@@ -16,18 +16,17 @@ set(CMAKE_EXE_LINKER_FLAGS -mmcu=${MCU})
 
 add_subdirectory()
 
-set(TARGET **target filename**)
-add_executable()
-add_library()
-target_link_libraries()
-target_include_directories()
+set(TARGET crc32)
+
+add_library(${TARGET} STATIC src/crc32.c)
+target_include_directories(${TARGET} PUBLIC include)
 
 #-----------------------------------------------------------------------------#
 target_compile_options(${TARGET} PUBLIC -mmcu=${MCU}
-    									-std=gnu11
-    									-O2
-    									-Wall
-    									-Werror
+										-std=gnu11
+										-O2
+										-Wall
+										-Werror
 )
 
 target_compile_definitions(${TARGET} PUBLIC F_CPU=${F_CPU})
