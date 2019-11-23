@@ -14,7 +14,8 @@ typedef uint32_t crc32_t;
 
 uint8_t reflect(uint8_t);
 crc32_t crc32_compute(const void*, uint32_t);
-int crc32_check(const void*, uint32_t, crc32_t);
+int crc32_selfcheck(const void*, uint32_t, crc32_t);
+int crc32_check(const void*, uint32_t);
 void crc32_init();
 
 #ifdef __cplusplus

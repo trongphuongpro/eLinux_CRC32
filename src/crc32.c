@@ -42,16 +42,23 @@ crc32_t crc32_compute(const void *data, uint32_t len) {
 }
 
 
-int crc32_check(const void *data, uint32_t len, crc32_t crc) {
+int crc32_selfcheck(const void *data, uint32_t len, crc32_t crc) {
 	uint8_t *msg = (uint8_t*)calloc(len + 4, 1);
 	crc = ~crc;
 
 	memcpy(msg, data, len);
 	memcpy(msg+len, &crc, 4);
 
-	crc32_t ret = ~crc32_compute(msg, len+4);
+	int ret = crc32_check(msg, len+4);
 
 	free(msg);
+
+	return ret;
+}
+
+
+int crc32_check(const void *data, uint32_t len) {
+	crc32_t ret = ~crc32_compute(data, len);
 
 	if (ret == 0)
 		return 0;
