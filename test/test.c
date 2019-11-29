@@ -8,5 +8,5 @@ int main() {
 
 	crc32_t crc = crc32_compute(data, sizeof(data));
 	printf("CRC32: %#x\n", crc);
-	printf("Check: %d\n", crc32_check(data, sizeof(data), crc));
+	printf("Check: %d\n", crc32_selfcheck(data, sizeof(data), crc));
 }
