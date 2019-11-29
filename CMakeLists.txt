@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.0)
 
 #-----------------------------------------------------------------------------#
+set(CMAKE_SYSTEM_NAME Linux)
+set(CMAKE_CXX_COMPILER arm-g++)
+set(CMAKE_C_COMPILER arm-gcc)
+#-----------------------------------------------------------------------------#
 
 set(TARGET crc32)
 
@@ -14,3 +18,4 @@ target_compile_options(${TARGET} PUBLIC -std=gnu11
 										-Werror
 )
 #-----------------------------------------------------------------------------#
+install(TARGETS ${TARGET} DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/bin)
