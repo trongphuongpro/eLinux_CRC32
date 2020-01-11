@@ -3,7 +3,6 @@
 
 
 int main() {
-	crc32_init();
 	uint8_t data[1] = {0};
 
 	crc32_t crc = crc32_compute(data, sizeof(data));
