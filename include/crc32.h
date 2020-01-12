@@ -15,9 +15,6 @@ extern "C" {
 
 #include <stdint.h>
 
-#define CRC32POLY			0x04C11DB7
-#define CRC32POLY_REVERSE	0xEDB88320
-
 
 /**
  * @brief datatype for CRC-32 checksum value
