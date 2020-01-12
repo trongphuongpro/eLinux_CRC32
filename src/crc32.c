@@ -71,6 +71,18 @@ crc32_t crc32_compute(const void *data, uint32_t len) {
 }
 
 
+crc32_t crc32_concat(crc32_t checksum, const void* data, uint32_t len) {
+	uint8_t *msg = (uint8_t*)data;
+	checksum = ~checksum;
+
+	for (uint32_t i = 0; i < len; i++) {
+		checksum = crc32Table[msg[i] ^ (checksum & 0xFF)] ^ (checksum >> 8);
+	}
+
+	return ~checksum;
+}
+
+
 int crc32_selfcheck(const void *data, uint32_t len, crc32_t crc) {
 	uint8_t *msg = (uint8_t*)calloc(len + 4, 1);
 	crc = ~crc;
