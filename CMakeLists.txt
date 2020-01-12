@@ -12,8 +12,7 @@ add_library(${TARGET} STATIC src/crc32.c)
 target_include_directories(${TARGET} PUBLIC include)
 
 #-----------------------------------------------------------------------------#
-target_compile_options(${TARGET} PUBLIC -std=gnu11
-										-O2
+target_compile_options(${TARGET} PUBLIC -O2
 										-Wall
 										-Werror
 )
